@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: risk-management-app
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      - maven_cache:/root/.m2
+    working_dir: /app
+volumes:
+    maven_cache:
