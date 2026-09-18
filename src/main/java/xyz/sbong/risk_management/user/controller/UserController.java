@@ -12,12 +12,12 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-    @PostMapping("")
+    @PostMapping("/register")
     public User create(@RequestBody User user) {
         // Implement the logic to create a new user
         return userService.create(user);
     }
-    @GetMapping("")
+    @GetMapping("/all")
     public List<User> getAllUsers() {
         // Implement the logic to get all users
         return userService.getAllUsers();
