@@ -19,10 +19,10 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(request-> request
-                        .requestMatchers("/api/users/register").permitAll()
+                        .requestMatchers("/api/users/register", "/api/users/login").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
-                .formLogin(Customizer.withDefaults())
+//                .formLogin(Customizer.withDefaults())
                 .build();
     }
     @Bean
