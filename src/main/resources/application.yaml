@@ -1,3 +1,17 @@
 spring:
   application:
     name: risk-management
+
+  datasource:
+    url: jdbc:mysql://mysql:3306/risk_management
+    username: admin
+    password: admin@123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+#  security:
+#    user:
+#      name: admin
+#      password: admin123
