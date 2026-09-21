@@ -17,6 +17,11 @@ public class UserController {
         // Implement the logic to create a new user
         return userService.create(user);
     }
+    @PostMapping("/login")
+    public String login(@RequestBody User user) {
+        // Implement the logic to authenticate the user
+        return "success!";
+    }
     @GetMapping("/all")
     public List<User> getAllUsers() {
         // Implement the logic to get all users
