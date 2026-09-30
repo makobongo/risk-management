@@ -22,21 +22,21 @@ public class SecurityConfig {
                         .requestMatchers("/api/users/register", "/api/users/login").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
-//                .formLogin(Customizer.withDefaults())
+                .formLogin(Customizer.withDefaults())
                 .build();
     }
-    @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails user = User.withUsername("admin")
-                .password("{noop}admin123")
-                .roles("USER")
-                .build();
-
-        UserDetails user2 = User.withUsername("user")
-                .password("{noop}user123")
-                .roles("USER")
-                .build();
-
-        return new InMemoryUserDetailsManager(user,user2);
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        UserDetails user = User.withUsername("admin")
+//                .password("{noop}admin123")
+//                .roles("USER")
+//                .build();
+//
+//        UserDetails user2 = User.withUsername("user")
+//                .password("{noop}user123")
+//                .roles("USER")
+//                .build();
+//
+//        return new InMemoryUserDetailsManager(user,user2);
+//    }
 }
