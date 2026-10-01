@@ -10,6 +10,7 @@ services:
       - .:/app
       - maven_cache:/root/.m2
     working_dir: /app
+    restart: always
     depends_on:
       - mysql
   mysql:
