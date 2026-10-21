@@ -1,5 +1,6 @@
 package xyz.sbong.risk_management.config;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -24,6 +25,13 @@ public class SecurityConfig {
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
                 .build();
+    }
+    @Bean
+    @ConditionalOnMissingBean(UserDetailsService.class)
+    public InMemoryUserDetailsManager inMemoryUserDetailsManager(){
+        String generatedPassword = "{noop}mk@123"; // Use
+        return new InMemoryUserDetailsManager(User.withUsername("mk")
+                .password(generatedPassword).roles("ADMIN").build());
     }
 //    @Bean
 //    public UserDetailsService userDetailsService() {
